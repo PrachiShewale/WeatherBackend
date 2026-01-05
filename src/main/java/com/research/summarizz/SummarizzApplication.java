@@ -1,4 +1,4 @@
-package com.summarizz.summarizz;
+package com.research.summarizz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
