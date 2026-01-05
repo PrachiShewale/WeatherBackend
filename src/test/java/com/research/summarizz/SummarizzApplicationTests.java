@@ -1,4 +1,4 @@
-package com.summarizz.summarizz;
+package com.research.summarizz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
