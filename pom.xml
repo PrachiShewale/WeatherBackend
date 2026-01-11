@@ -12,7 +12,7 @@
 	<artifactId>weather</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>weather</name>
-	<description>Smart research assistant that provides a summary of large documents.</description>
+	<description>My weather app.</description>
 	<url/>
 	<licenses>
 		<license/>
