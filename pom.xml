@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.research</groupId>
-	<artifactId>summarizz</artifactId>
+	<artifactId>weather</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Summarizz</name>
-	<description>Smart research assistant that provides a summary of large documents.</description>
+	<name>weather</name>
+	<description>My weather app.</description>
 	<url/>
 	<licenses>
 		<license/>
