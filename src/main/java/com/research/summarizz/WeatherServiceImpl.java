@@ -16,10 +16,9 @@ public class WeatherServiceImpl {
     private  WebClient webClient;
     @Autowired
     private ObjectMapper objectMapper;
-
-    public String createRequest(Double latitude, Double longitude) {
-
-        String url=weatherUrl+"lat="+latitude+"&lon="+longitude+"&appid="+weatherKey;
+//    https://api.openweathermap.org/data/2.5/weather?units=metric&q=Bangalore&appid=
+    public String createRequest(String unit, String cityName) {
+        String url=weatherUrl+"units="+unit+"&q="+cityName+"&appid="+weatherKey;
         WeatherResponse response =webClient.post().uri(url)
                 .retrieve()
                 .bodyToMono(WeatherResponse.class)

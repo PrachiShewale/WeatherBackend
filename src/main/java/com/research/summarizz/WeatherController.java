@@ -11,8 +11,8 @@ public class WeatherController {
     private final WeatherServiceImpl weatherService;
 
     @PostMapping("/weather")
-    public String createRequest(@RequestParam Double latitude,@RequestParam Double longitude){
-        return weatherService.createRequest(latitude,longitude);
+    public String createRequest(@RequestParam String unit,@RequestParam String cityName){
+        return weatherService.createRequest(unit,cityName);
 
     }
 
