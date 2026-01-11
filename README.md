@@ -1,2 +1,2 @@
-# Summarizz
-Smart research assistant 
+#Weather
+Weather application 
