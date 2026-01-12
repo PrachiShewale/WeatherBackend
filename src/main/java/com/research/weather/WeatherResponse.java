@@ -12,14 +12,14 @@ public class WeatherResponse {
     private List<Weather> weather;
     private String base;
     private MainObj main;
-    private long visibility;
+    private Long visibility;
     private Wind wind;
-    private Cloud cloud;
-    private long dt;
+    private Cloud clouds;
+    private Long dt;
     private SysObj sys;
-    private long timezone;
-    private long id;
+    private Long timezone;
+    private Long id;
     private String name;
-    private long cod;
+    private Long cod;
 
 }

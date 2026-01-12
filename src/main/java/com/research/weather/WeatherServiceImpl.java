@@ -17,8 +17,9 @@ public class WeatherServiceImpl {
     @Autowired
     private ObjectMapper objectMapper;
 //    https://api.openweathermap.org/data/2.5/weather?units=metric&q=Bangalore&appid=
-    public WeatherResponse createRequest(String unit, String cityName) {
+    public WeatherResponse getWeatherDetails(String unit, String cityName) {
         String url=weatherUrl+"units="+unit+"&q="+cityName+"&appid="+weatherKey;
+        System.out.println(url);
         WeatherResponse response =webClient.post().uri(url)
                 .retrieve()
                 .bodyToMono(WeatherResponse.class)
