@@ -6,6 +6,6 @@ import lombok.Data;
 public class SysObj {
 
     private String country;
-    private long sunrise;
-    private long sunset;
+    private Long sunrise;
+    private Long sunset;
 }

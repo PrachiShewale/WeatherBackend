@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 public class WeatherController {
     private final WeatherServiceImpl weatherService;
 
-    @PostMapping("/weather")
-    public ResponseEntity<WeatherResponse> createRequest(@RequestParam String unit,@RequestParam String cityName){
-        return new ResponseEntity<>(weatherService.createRequest(unit,cityName), HttpStatus.OK);
+    @GetMapping("/weather")
+    public ResponseEntity<WeatherResponse> getWeatherDetails(@RequestParam String unit,@RequestParam String cityName){
+        return new ResponseEntity<>(weatherService.getWeatherDetails(unit,cityName), HttpStatus.OK);
 
     }
 
