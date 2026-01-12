@@ -1,10 +1,13 @@
-package com.research.summarizz.config;
+package com.research.weather.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 public class Webconfig {
@@ -27,3 +30,4 @@ public class Webconfig {
         };
     }
 }
+

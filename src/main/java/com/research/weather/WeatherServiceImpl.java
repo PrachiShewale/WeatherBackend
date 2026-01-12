@@ -1,4 +1,4 @@
-package com.research.summarizz;
+package com.research.weather;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,13 +17,13 @@ public class WeatherServiceImpl {
     @Autowired
     private ObjectMapper objectMapper;
 //    https://api.openweathermap.org/data/2.5/weather?units=metric&q=Bangalore&appid=
-    public String createRequest(String unit, String cityName) {
+    public WeatherResponse createRequest(String unit, String cityName) {
         String url=weatherUrl+"units="+unit+"&q="+cityName+"&appid="+weatherKey;
         WeatherResponse response =webClient.post().uri(url)
                 .retrieve()
                 .bodyToMono(WeatherResponse.class)
                 .block();
-        return response.toString();
+        return response;
 
     }
 

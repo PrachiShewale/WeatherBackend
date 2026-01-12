@@ -1,6 +1,8 @@
-package com.research.summarizz;
+package com.research.weather;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,8 +13,8 @@ public class WeatherController {
     private final WeatherServiceImpl weatherService;
 
     @PostMapping("/weather")
-    public String createRequest(@RequestParam String unit,@RequestParam String cityName){
-        return weatherService.createRequest(unit,cityName);
+    public ResponseEntity<WeatherResponse> createRequest(@RequestParam String unit,@RequestParam String cityName){
+        return new ResponseEntity<>(weatherService.createRequest(unit,cityName), HttpStatus.OK);
 
     }
 
