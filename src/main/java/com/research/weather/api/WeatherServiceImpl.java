@@ -19,9 +19,9 @@ public class WeatherServiceImpl {
     private  WebClient webClient;
     public WeatherResponse getWeatherDetails(String unit, String cityName) {
         log.info("Weather Key: {}", weatherKey);
-//        if(cityName==null || cityName.isEmpty()){
-//           return new ResponseEntity<>("Invalid city name.Please enter again...", HttpStatus.NOT_FOUND);
-//        }
+        if(cityName==null || cityName.isEmpty()){
+           return null;
+        }
         String url=weatherUrl+"units="+unit+"&q="+cityName+"&appid="+weatherKey;
         System.out.println(url);
         WeatherResponse response =webClient.post().uri(url)
