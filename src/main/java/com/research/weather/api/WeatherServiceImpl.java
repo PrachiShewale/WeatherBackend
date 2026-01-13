@@ -1,12 +1,15 @@
-package com.research.weather;
+package com.research.weather.api;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import tools.jackson.databind.ObjectMapper;
 
 @Service
+@Slf4j
 public class WeatherServiceImpl {
     @Value("${weather.key}")
     private String weatherKey;
@@ -14,10 +17,11 @@ public class WeatherServiceImpl {
     private String weatherUrl;
     @Autowired
     private  WebClient webClient;
-    @Autowired
-    private ObjectMapper objectMapper;
-//    https://api.openweathermap.org/data/2.5/weather?units=metric&q=Bangalore&appid=
     public WeatherResponse getWeatherDetails(String unit, String cityName) {
+        log.info("Weather Key: {}", weatherKey);
+//        if(cityName==null || cityName.isEmpty()){
+//           return new ResponseEntity<>("Invalid city name.Please enter again...", HttpStatus.NOT_FOUND);
+//        }
         String url=weatherUrl+"units="+unit+"&q="+cityName+"&appid="+weatherKey;
         System.out.println(url);
         WeatherResponse response =webClient.post().uri(url)

@@ -1,4 +1,4 @@
-package com.research.weather;
+package com.research.weather.bo;
 
 import lombok.Data;
 
