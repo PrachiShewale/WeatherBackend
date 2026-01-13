@@ -1,6 +1,7 @@
-package com.research.weather;
+package com.research.weather.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.research.weather.bo.*;
 import lombok.Data;
 
 import java.util.List;
