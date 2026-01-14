@@ -1,8 +1,10 @@
 package com.research.weather.api;
 
+import com.research.weather.bo.WeatherResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,21 +18,26 @@ public class WeatherServiceImpl {
     @Value("${weather.url}")
     private String weatherUrl;
     @Autowired
-    private  WebClient webClient;
-    public WeatherResponse getWeatherDetails(String unit, String cityName) {
+    private WebClient webClient;
+
+    public ResponseEntity<WeatherResponse> getWeatherDetails(String unit, String cityName) {
         log.info("Weather Key: {}", weatherKey);
-        if(cityName==null || cityName.isEmpty()){
-           return null;
+        try {
+            String url = weatherUrl + "units=" + unit + "&q=" + cityName + "&appid=" + weatherKey;
+            System.out.println(url);
+            WeatherResponse response = webClient.post().uri(url)
+                    .retrieve()
+                    .bodyToMono(WeatherResponse.class)
+                    .block();
+            log.info("Weather Response: {}", response);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
+        } catch (Exception e) {
+
+            log.error("Error fetching weather details: {}", e.getMessage());
+            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
+
+
         }
-        String url=weatherUrl+"units="+unit+"&q="+cityName+"&appid="+weatherKey;
-        System.out.println(url);
-        WeatherResponse response =webClient.post().uri(url)
-                .retrieve()
-                .bodyToMono(WeatherResponse.class)
-                .block();
-        return response;
 
-    }
-
-
-}
+}}
